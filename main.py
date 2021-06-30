@@ -49,19 +49,11 @@ def obrobotka(message):
         # setting up the tesseract
         custom_config = r'--oem 3 --psm 6'
 
-        bot.send_message(message.chat.id, "If white")
-
         text = pytesseract.image_to_string(img, lang='eng', config=custom_config)
         bot.send_message(message.chat.id, text)
 
-        bot.send_message(message.chat.id, "If black")
-
-        text = pytesseract.image_to_string(t_img, lang='eng', config=custom_config)
-        bot.send_message(message.chat.id, text)
-
-
     except Exception as e:
-        bot.send_message(message.chat.id, 'Че та ошибка🧐\nвозможно файл слишком большой🤔')
+        bot.send_message(message.chat.id, 'There is an error 🧐\nThe file may be too large 🤔')
         bot.send_message(message.chat.id, e)
 
 if __name__ == '__main__':
